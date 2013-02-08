@@ -1,21 +1,28 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:a4j="http://richfaces.org/a4j">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
 
 <body>
-    <ui:composition template="/templates/template.xhtml">
+	<ui:composition template="/templates/template.xhtml">
 
-        <ui:define name="title">Yummy Code - JSF 2.0 and RichFaces 4.0 Plate</ui:define>
+		<ui:define name="title">Yummy Code - JSF 2.0 and RichFaces 4.0 Plate</ui:define>
 
-        <ui:define name="body">
-            <h:form id="form">
-                 <h1>Yummy Code's JSF 2.0 and RichFaces 4.0 Plate</h1>
-                 <h3>Topics</h3><p>A set of useful tips and reusable code patterns served on a plate.</p>
-                 <ul>
-                 	<li><h:link value="Richfaces Extended Data Table" outcome="rf_extended_data_table" /></li>
-                 </ul>
-            </h:form>
-        </ui:define>
-    </ui:composition>
+		<ui:define name="body">
+			<h:form id="form">
+				<h1>Yummy Code's JSF 2.0 and RichFaces 4.0 Plate</h1>
+				<h3>Topics</h3>
+				<p>A set of useful tips and reusable code patterns served on a
+					plate.</p>
+				<ul>
+					<li><h:link value="Richfaces Extended Data Table"
+							outcome="rf_extended_data_table" /></li>
+				</ul>
+			</h:form>
+		</ui:define>
+	</ui:composition>
 </body>
 </html>
