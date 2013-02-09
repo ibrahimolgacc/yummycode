@@ -9,43 +9,73 @@
 <body>
 
 	<ui:composition template="/templates/template.xhtml">
-	
-	<ui:define name="title">Yummy Code - JSF 2.0 and RichFaces 4.0 Plate</ui:define>
+
+		<ui:define name="title">Yummy Code - JSF 2.0 and RichFaces 4.0 Plate</ui:define>
 
 		<ui:define name="body">
 
-		<h:form id="form">
+			<ui:include src="header.xhtml" />
 
-			<rich:extendedDataTable id="table" value="#{countries.countryItems}"
-				var="country" selection="#{countries.selection}" 
-				style="height:190px; width:503px;"
-				selectionMode="single">
-				<a4j:ajax execute="@form" event="selectionchange" listener="#{countries.selectionListener}"/>
-				<f:facet name="header">
-					<h:outputText value="Countries" />
-				</f:facet>
-				<rich:column width="100px">
-					<f:facet name="header">
-						<h:outputText value="Name" />
-					</f:facet>
-					<h:outputText value="#{country.name}" />
-				</rich:column>
-				<rich:column width="100px">
-					<f:facet name="header">
-						<h:outputText value="Capital" />
-					</f:facet>
-					<h:outputText value="#{country.capital}" />
-				</rich:column>
-				<rich:column width="300px">
-					<f:facet name="header">
-						<h:outputText value="Language(s)" />
-					</f:facet>
-					<h:outputText value="#{country.languages}" />
-				</rich:column>
-			</rich:extendedDataTable>
+			<h:form id="form">
 
-		</h:form>
-		
+				<h:panelGrid cellpadding="0" columns="1">
+					<rich:extendedDataTable id="table"
+						value="#{countries.countryItems}" var="country"
+						selection="#{countries.selection}"
+						style="height:190px; width:539px;" selectionMode="single">
+						<a4j:ajax execute="@form" event="selectionchange"
+							status="someProcessing" listener="#{countries.selectionListener}" />
+						<f:facet name="header">
+							<h:outputText value="Countries" />
+						</f:facet>
+						<rich:column styleClass="#{msg.status}" width="35px">
+							<f:facet name="header">
+								<h:outputText value="GDP > $1T" />
+							</f:facet>
+							<rich:tooltip mode="client" target="largeGDPCountry">
+								<h:outputText value="#{country.name} - 2011 GDP: #{country.gdp} > $1T" />
+							</rich:tooltip>
+							<h:graphicImage id="largeGDPCountry" value="/img/checkmark.png"
+								rendered="#{country.largeGdp}" alt="GDP" />
+						</rich:column>
+						<rich:column width="100px">
+							<f:facet name="header">
+								<h:outputText value="Name" />
+							</f:facet>
+							<h:outputText id="countryName" value="#{country.name}" />
+							<rich:tooltip mode="client" target="countryName">
+								<h:outputText value="#{country.name} - 2011 GDP: #{country.gdp} $M" />
+							</rich:tooltip>
+						</rich:column>
+						<rich:column width="100px">
+							<f:facet name="header">
+								<h:outputText value="Capital" />
+							</f:facet>
+							<h:outputText value="#{country.capital}" />
+						</rich:column>
+						<rich:column width="300px">
+							<f:facet name="header">
+								<h:outputText value="Language(s)" />
+							</f:facet>
+							<h:outputText value="#{country.languages}" />
+						</rich:column>
+					</rich:extendedDataTable>
+
+					<h:panelGroup>
+						<h:panelGrid columns="2" columnClasses="alignTop, alignTop">
+							<a4j:commandButton value="Refresh" status="refreshTable"
+								oncomplete="#{countries.refresh()}" />
+							<a4j:status name="someProcessing">
+								<f:facet name="start">
+									<h:graphicImage value="/img/processing.gif" />
+								</f:facet>
+							</a4j:status>
+						</h:panelGrid>
+					</h:panelGroup>
+
+				</h:panelGrid>
+			</h:form>
+
 		</ui:define>
 
 	</ui:composition>
