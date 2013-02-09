@@ -1,0 +1,21 @@
+ /* Header */
+ body {
+ 	margin:0;
+ } 
+ 
+.alignRight {
+    text-align: right;
+}
+
+.alignLeft {
+    text-align: left;
+}
+ 
+.alignTop {
+	vertical-align:top;
+}
+
+.alignBottom {
+	vertical-align:bottom;
+}
+  
