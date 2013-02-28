@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+<body>
+
+	<ui:composition template="/templates/template.xhtml">
+
+		<ui:define name="title">Yummy Code - JSF 2.0 and RichFaces 4.0 Plate</ui:define>
+
+		<ui:define name="body">
+
+			<h:form>
+
+				<a4j:commandButton value="Message Consumer"
+					oncomplete="#{rich:component('cdi_message_consumer_popup')}.show();" />
+				<br />
+				<br />
+				<h:panelGrid columns="4">
+					<h:outputLabel value="Message:" />
+					<h:inputText id="messageInput" value="#{pushCdiBean.message}">
+						 <f:validator validatorId="emailAddressValidator" />
+					</h:inputText>
+					<a4j:commandButton value="Send" 
+						action="#{pushCdiBean.sendMessage}"
+						execute="@form" 
+						render="messageInput" 
+						oncomplete="#{rich:element('messageInput')}.value=''"/>
+				</h:panelGrid>
+
+			</h:form>
+
+			<ui:include src="rf_ajax_push_consumer_popup.xhtml" />
+
+		</ui:define>
+
+	</ui:composition>
+</body>
+</html>
