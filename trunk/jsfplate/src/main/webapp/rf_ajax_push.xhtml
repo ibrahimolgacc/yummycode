@@ -14,7 +14,7 @@
 
 		<ui:define name="body">
 
-			<h:form>
+			<h:form id ="from">
 
 				<a4j:commandButton value="Message Consumer"
 					oncomplete="#{rich:component('cdi_message_consumer_popup')}.show();" />
@@ -23,7 +23,6 @@
 				<h:panelGrid columns="4">
 					<h:outputLabel value="Message:" />
 					<h:inputText id="messageInput" value="#{pushCdiBean.message}">
-						 <f:validator validatorId="emailAddressValidator" />
 					</h:inputText>
 					<a4j:commandButton value="Send" 
 						action="#{pushCdiBean.sendMessage}"
