@@ -4,6 +4,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:a4j="http://richfaces.org/a4j"
 	xmlns:rich="http://richfaces.org/rich">
+	
+	<h:outputStylesheet library="css" name="customStyle.css"/>
 
 	<rich:hotKey key="Esc">
 		<rich:componentControl target="cdi_message_consumer_popup"
@@ -11,26 +13,25 @@
 	</rich:hotKey>
 
 	<rich:popupPanel id="cdi_message_consumer_popup" modal="false"
-		resizeable="false" top="100" left="1000" autosized="true"
+		resizeable="false" top="100" left="300" autosized="true"
 		domElementAttachment="parent">
 
 		<f:facet name="header">
-			<h:outputText value="Ajax Push/CDI Message Consumer" />
+			<h:outputText value="Ajax Push/CDI Message Consumer &#160;&#160;&#160;" />
 		</f:facet>
 
 		<f:facet name="controls">
 			<h:outputLink value="#"
 				onclick="#{rich:component('cdi_message_consumer_popup')}.hide(); return false;">
-				<h:outputText value="X" />
+				<h:outputText value="X" styleClass="textHeader" />
 			</h:outputLink>
 		</f:facet>
 
 		<h:form>
 			<h:panelGrid columns="3">
-				<a4j:push address="#{pushCdiBean.userIdentifier}@pushCdi" 
+				<a4j:push address="pushCdi" 
 					onerror="alert('error: ' + event.rf.data)"
 					ondataavailable="jQuery('&lt;li /&gt;').prependTo('#messages').text(event.rf.data)">
-					<a4j:ajax event="dataavailable" />
 				</a4j:push>
 				<ul id="messages" />
 			</h:panelGrid>
