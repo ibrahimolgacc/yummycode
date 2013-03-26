@@ -17,8 +17,6 @@ import javax.faces.event.AjaxBehaviorEvent;
  
 import org.richfaces.component.UIExtendedDataTable;
 
-import com.sun.faces.util.Timer;
-
 import net.yummycode.jsfplate.domain.CountryItem;
 import net.yummycode.jsfplate.util.Processing;
 

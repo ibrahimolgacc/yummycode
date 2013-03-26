@@ -60,10 +60,10 @@
 							<h:outputText value="#{country.languages}" />
 						</rich:column>
 					</rich:extendedDataTable>
-
+					
 					<h:panelGroup>
 						<h:panelGrid columns="2" columnClasses="alignTop, alignTop">
-							<a4j:commandButton value="Refresh" status="refreshTable"
+							<a4j:commandButton value="Refresh" status="someProcessing"
 								oncomplete="#{countries.refresh()}" />
 							<a4j:status name="someProcessing">
 								<f:facet name="start">
