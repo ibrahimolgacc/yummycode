@@ -25,7 +25,6 @@ public class PushCdiBean implements Serializable {
 	
 	public void sendMessage() throws Exception {
 		if (pushEvent == null) {
-			System.out.println("*** pushEvent = null!");
 		} else {
 			pushEvent.fire(message);
 		}
