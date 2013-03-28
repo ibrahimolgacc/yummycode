@@ -22,8 +22,7 @@
 				<br />
 				<h:panelGrid columns="4">
 					<h:outputLabel value="Message:" />
-					<h:inputText id="messageInput" value="#{pushCdiBean.message}">
-					</h:inputText>
+					<h:inputText id="messageInput" value="#{pushCdiBean.message}"/>
 					<a4j:commandButton value="Send" 
 						action="#{pushCdiBean.sendMessage}"
 						execute="@form" 
